@@ -1,11 +1,16 @@
 .testimonial-form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  max-width: 400px;
+  max-width: 800px;
 }
 
 .testimonial-form div {
   display: flex;
   flex-direction: column;
+  flex: 1 1 150px;
+}
+
+.testimonial-form button {
+  align-self: flex-start;
 }
