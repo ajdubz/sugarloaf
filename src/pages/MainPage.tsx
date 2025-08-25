@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PetCarousel from "../components/PetCarousel";
+import TestimonialForm from "../components/TestimonialForm";
 import "./MainPage.css";
 
 export default function MainPage() {

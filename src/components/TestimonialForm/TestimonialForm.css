@@ -1,0 +1,11 @@
+.testimonial-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+.testimonial-form div {
+  display: flex;
+  flex-direction: column;
+}
