@@ -1,5 +1,6 @@
 import "./Header.css";
-import logoUrl from "../assets/logo.png";
+
+const logoUrl = "https://placehold.co/120x40?text=Logo";
 
 export default function Header() {
   return (
