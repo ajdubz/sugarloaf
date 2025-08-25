@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchAnimals } from "../lib/api";
+import { fetchAnimals } from "../../lib/api";
 
 type Animal = { name: string; species: string; description?: string };
 
