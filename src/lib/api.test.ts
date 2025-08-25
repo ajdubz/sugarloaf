@@ -3,7 +3,7 @@ import { API_BASE, fetchAnimals, submitTestimonial, TestimonialPayload } from '.
 
 describe('fetchAnimals', () => {
   it('returns animals when response is ok', async () => {
-    const animals = [{ name: 'Tom', species: 'cat' }];
+    const animals = [{ name: 'Tom', species: 'cat', photoUrl: 'tom.jpg' }];
     global.fetch = vi.fn().mockResolvedValue({
       ok: true,
       json: vi.fn().mockResolvedValue(animals),

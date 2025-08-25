@@ -14,3 +14,8 @@
 .testimonial-form button {
   align-self: flex-start;
 }
+
+.animal-photo {
+  max-width: 150px;
+  margin-top: 0.5rem;
+}
