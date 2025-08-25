@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PetCard from "../PetCard";
 
 type Pet = { name: string; image: string };
 
-const images = import.meta.glob("../assets/originals/petImage_*.jpg", {
+// IMPORTANT: path must be from this file's folder (components/PetCarousel/*)
+// Assets live under src/assets/originals, so go up two levels.
+const images = import.meta.glob("../../assets/originals/petImage_*.jpg", {
   eager: true,
   import: "default",
 });
@@ -15,16 +17,28 @@ const pets: Pet[] = Object.values(images)
 export default function PetCarousel() {
   const [start, setStart] = useState(0);
 
+  const count = pets.length;
+
+  // Avoid modulo-by-zero and undefined access when there are no images
+  const visible: Pet[] = useMemo(() => {
+    if (count === 0) return [];
+    return [0, 1, 2].map((offset) => pets[(start + offset) % count]);
+  }, [start, count]);
+
   useEffect(() => {
+    if (count === 0) return; // nothing to rotate
     const id = setInterval(() => {
-      setStart((prev) => (prev + 3) % pets.length);
+      setStart((prev) => (prev + 3) % count);
     }, 15000);
     return () => clearInterval(id);
-  }, []);
+  }, [count]);
 
-  const visible: Pet[] = [];
-  for (let i = 0; i < 3; i++) {
-    visible.push(pets[(start + i) % pets.length]);
+  if (count === 0) {
+    return (
+      <section className="pets" aria-live="polite" role="status">
+        No pets to show yet.
+      </section>
+    );
   }
 
   return (
