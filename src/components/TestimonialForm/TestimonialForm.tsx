@@ -1,14 +1,21 @@
-import { useState } from "react";
-import { submitTestimonial } from "../../lib/api";
+import { useEffect, useState } from "react";
+import { fetchAnimals, submitTestimonial, Animal } from "../../lib/api";
 import "./TestimonialForm.css";
 
 export default function TestimonialForm() {
   const [name, setName] = useState("");
   const [anonymous, setAnonymous] = useState(false);
   const [text, setText] = useState("");
+  const [animals, setAnimals] = useState<Animal[]>([]);
   const [animalName, setAnimalName] = useState("");
   const [animalPhoto, setAnimalPhoto] = useState("");
   const [status, setStatus] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchAnimals()
+      .then(setAnimals)
+      .catch((e) => setStatus(e.message));
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -67,21 +74,26 @@ export default function TestimonialForm() {
       </div>
       <div>
         <label>
-          Animal Name:
-          <input
+          Animal:
+          <select
             value={animalName}
-            onChange={(e) => setAnimalName(e.target.value)}
-          />
+            onChange={(e) => {
+              const selected = animals.find((a) => a.name === e.target.value);
+              setAnimalName(selected?.name || "");
+              setAnimalPhoto(selected?.photoUrl || "");
+            }}
+          >
+            <option value="">Select an animal</option>
+            {animals.map((a) => (
+              <option key={a.name} value={a.name}>
+                {a.name}
+              </option>
+            ))}
+          </select>
         </label>
-      </div>
-      <div>
-        <label>
-          Animal Photo URL:
-          <input
-            value={animalPhoto}
-            onChange={(e) => setAnimalPhoto(e.target.value)}
-          />
-        </label>
+        {animalPhoto && (
+          <img src={animalPhoto} alt={animalName} className="animal-photo" />
+        )}
       </div>
       <button type="submit">Submit</button>
       {status && <p>{status}</p>}

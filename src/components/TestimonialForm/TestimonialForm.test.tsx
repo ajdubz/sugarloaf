@@ -5,6 +5,13 @@ import TestimonialForm from "./TestimonialForm";
 
 describe("TestimonialForm", () => {
   it("submits testimonial data", async () => {
+    vi.spyOn(api, "fetchAnimals").mockResolvedValue([
+      {
+        name: "Spot",
+        species: "dog",
+        photoUrl: "http://example.com/pet.jpg",
+      },
+    ]);
     const submit = vi
       .spyOn(api, "submitTestimonial")
       .mockResolvedValue({ id: "1" });
@@ -17,11 +24,8 @@ describe("TestimonialForm", () => {
     fireEvent.change(screen.getByLabelText(/Details/i), {
       target: { value: "Great service" },
     });
-    fireEvent.change(screen.getByLabelText(/Animal Name/i), {
+    fireEvent.change(await screen.findByLabelText(/Animal/i), {
       target: { value: "Spot" },
-    });
-    fireEvent.change(screen.getByLabelText(/Animal Photo URL/i), {
-      target: { value: "http://example.com/pet.jpg" },
     });
     fireEvent.click(screen.getByText("Submit"));
 
