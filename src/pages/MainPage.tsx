@@ -2,21 +2,21 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PetCard from "../components/PetCard";
 import "./MainPage.css";
-
-const heroUrl = "https://placekitten.com/1920/490";
-const petImg = "https://placekitten.com/263/180";
+import pet1 from "../assets/placeholders/263x180_pet1.jpg";
+import pet2 from "../assets/placeholders/263x180_pet2.jpg";
+import pet3 from "../assets/placeholders/263x180_pet3.jpg";
 
 export default function MainPage() {
   const pets = [
-    { name: "Fluffy", image: petImg },
-    { name: "Spot", image: petImg },
-    { name: "Whiskers", image: petImg },
+    { name: "Fluffy", image: pet1 },
+    { name: "Spot", image: pet2 },
+    { name: "Whiskers", image: pet3 },
   ];
 
   return (
     <>
       <Header />
-      <section className="hero" style={{ backgroundImage: `url(${heroUrl})` }}>
+      <section className="hero">
         <div className="hero-content">
           <h1>Welcome to Pet Rescue</h1>
           <p>Find your new best friend today.</p>

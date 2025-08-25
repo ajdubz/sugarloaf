@@ -1,13 +1,15 @@
+/* src/pages/MainPage.css */
 .hero {
   height: 300px;
-  background-size: cover;
-  background-position: center;
+  background: url("../assets/placeholders/1920x490_slide1.jpg")
+    center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   text-align: center;
 }
+
 
 .pets {
   display: flex;
