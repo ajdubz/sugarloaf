@@ -6,10 +6,6 @@
   background-color: #fff;
 }
 
-.header-logo img {
-  height: 40px;
-}
-
 .header-nav ul {
   list-style: none;
   display: flex;

@@ -10,11 +10,15 @@ export default function MainPage() {
       <Header />
       <section className="hero">
         <div className="hero-content">
-          <h1>Welcome to Pet Rescue</h1>
-          <p>Find your new best friend today.</p>
+          <h1>Sugarloaf Mountain Ranch, inc.</h1>
+          <p>501c3 Non-Profit Farm Animal Rescue and Sanctuary</p>
         </div>
       </section>
       <PetCarousel />
+      <section className="testimonials">
+        <h2>Share your story</h2>
+        <TestimonialForm />
+      </section>
       <Footer />
     </>
   );
