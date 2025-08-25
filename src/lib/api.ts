@@ -5,3 +5,21 @@ export async function fetchAnimals() {
   if (!res.ok) throw new Error(`Failed: ${res.status}`);
   return res.json() as Promise<{ name: string; species: string; description?: string }[]>;
 }
+
+export type TestimonialPayload = {
+  name?: string;
+  anonymous?: boolean;
+  text: string;
+  animalName?: string;
+  animalPhoto?: string;
+};
+
+export async function submitTestimonial(data: TestimonialPayload) {
+  const res = await fetch(`${API_BASE}/testimonials`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error(`Failed: ${res.status}`);
+  return res.json() as Promise<{ id: string }>;
+}

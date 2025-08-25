@@ -18,3 +18,11 @@
   gap: 1rem;
   padding: 2rem;
 }
+
+.testimonials {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
