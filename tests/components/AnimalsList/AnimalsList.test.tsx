@@ -1,7 +1,7 @@
 import { afterEach, describe, it, expect, vi } from "vitest";
 import { render, screen } from '@testing-library/react';
-import AnimalsList from './AnimalsList';
-import * as api from '../../lib/api';
+import AnimalsList from '@/components/AnimalsList/AnimalsList';
+import * as api from '@/lib/api';
 
 afterEach(() => vi.restoreAllMocks());
 

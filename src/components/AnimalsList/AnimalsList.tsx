@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchAnimals } from "../../lib/api";
-
-type Animal = { name: string; species: string; description?: string };
+import type { Animal } from "../../lib/api";
 
 export default function AnimalsList() {
   const [animals, setAnimals] = useState<Animal[]>([]);

@@ -20,4 +20,10 @@ npm run dev
 - `src/lib` – shared utilities such as API helpers with colocated tests
 - `src/pages` – top-level pages
 
-Vitest is configured to use jsdom and Testing Library, with custom types from `tsconfig.vitest.json`.
+## Testing
+
+- Runner: Vitest with `jsdom` and Testing Library.
+- Types: Editor types for tests come from `tests/tsconfig.json` (extends `tsconfig.vitest.json`). Vitest itself does not read a `tsconfig` setting from `vite.config.ts`.
+- Setup file: `vitest.setup.ts` includes `@testing-library/jest-dom` and `globals` are enabled.
+
+Tip: If your editor does not pick up test typings, ensure it recognizes `tests/tsconfig.json` as a project.

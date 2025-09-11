@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { API_BASE, fetchAnimals, submitTestimonial, TestimonialPayload } from './api';
+import { API_BASE, fetchAnimals, submitTestimonial } from '@/lib/api';
+import type { TestimonialPayload } from '@/lib/api';
 
 describe('fetchAnimals', () => {
   it('returns animals when response is ok', async () => {

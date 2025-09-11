@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import * as api from "../../lib/api";
-import TestimonialForm from "./TestimonialForm";
+import * as api from "@/lib/api";
+import TestimonialForm from "@/components/TestimonialForm/TestimonialForm";
 
 describe("TestimonialForm", () => {
   it("submits testimonial data", async () => {

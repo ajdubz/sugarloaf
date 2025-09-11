@@ -1,0 +1,9 @@
+.error-boundary {
+  padding: 24px;
+}
+
+.error-boundary__details {
+  /* Keep long error messages readable */
+  white-space: pre-wrap;
+}
+

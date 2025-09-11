@@ -29,7 +29,7 @@ export default function PetCarousel() {
     if (count === 0) return; // nothing to rotate
     const id = setInterval(() => {
       setStart((prev) => (prev + 3) % count);
-    }, 15000);
+    }, 1500);
     return () => clearInterval(id);
   }, [count]);
 

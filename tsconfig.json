@@ -1,10 +1,11 @@
+
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true
+    "strict": true,
+    "verbatimModuleSyntax": true,        // forces correct type vs value imports; supersedes importsNotUsedAsValues
+    "moduleResolution": "bundler"
   },
-"files": [],
+  "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

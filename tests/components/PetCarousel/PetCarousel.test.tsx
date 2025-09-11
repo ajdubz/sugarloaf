@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import PetCarousel from "./PetCarousel";
+import PetCarousel from "@/components/PetCarousel/PetCarousel";
 
 describe("PetCarousel", () => {
   it("renders three pet cards and rotates", () => {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { fetchAnimals, submitTestimonial, Animal } from "../../lib/api";
+import { fetchAnimals, submitTestimonial } from "../../lib/api";
 import "./TestimonialForm.css";
+import type { Animal } from "../../lib/api";
 
 export default function TestimonialForm() {
   const [name, setName] = useState("");
