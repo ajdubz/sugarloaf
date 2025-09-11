@@ -6,6 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "check": "tsc -b --noEmit",
+    "dev:term": "node scripts/dev-term.mjs",
+    "dev:mock": "node scripts/dev-term.mjs mock",
+    "dev:backend": "node scripts/dev-term.mjs backend",
+    "dev:prod": "node scripts/dev-term.mjs prod",
+    "msw:init": "msw init ./public --save",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest"
@@ -15,6 +21,7 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "msw": "^2.4.10",
     "@eslint/js": "^9.33.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^16.0.0",
@@ -32,5 +39,10 @@
     "typescript-eslint": "^8.39.1",
     "vite": "^5.4.19",
     "vitest": "^1.6.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
