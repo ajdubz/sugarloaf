@@ -1,14 +1,10 @@
 /* src/pages/MainPage.css */
 .hero {
-  /* Header banner image now comes from public/ so you can swap easily
-     Drop your banner at: public/images/animals-banner.png */
   height: 340px;
-  background: url("/images/animals-banner.png") center bottom / contain no-repeat,
-    linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.0) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #222;
+  color: inherit; /* use body color for readability on background */
   text-align: center;
 }
 

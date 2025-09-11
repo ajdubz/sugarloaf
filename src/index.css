@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #7b4a2f;
+  background: #7b4a2f url("/images/animals-banner.png") center / cover no-repeat fixed;
   color: #fff;
   font-family: system-ui, sans-serif;
 }
