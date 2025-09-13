@@ -7,23 +7,3 @@
   color: inherit; /* use body color for readability on background */
   text-align: center;
 }
-
-
-.pets {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 1rem;
-  padding: 2rem;
-}
-
-.testimonials {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #333;
-}

@@ -1,9 +1,13 @@
 import "./Footer.css";
 
-export default function Footer() {
+interface FooterProps {
+  text?: string;
+}
+
+export default function Footer({ text = "© 2025 Pet Rescue. All rights reserved." }: FooterProps) {
   return (
     <footer className="footer">
-      <p>&copy; 2025 Pet Rescue. All rights reserved.</p>
+      <p>{text}</p>
     </footer>
   );
 }
