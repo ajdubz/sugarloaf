@@ -1,8 +1,25 @@
 body {
   margin: 0;
-  background: #7b4a2f url("/images/animals-banner.png") center / cover no-repeat fixed;
-  color: #fff;
+  /* Split out background properties to improve Safari/iOS behavior */
+  background-color: #7b4a2f;
+  background-image: url("/images/animals-banner.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Avoid background-attachment: fixed on iOS Safari which is buggy */
+  background-attachment: scroll;
+
+  color: #1a1a1a;
   font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Re-enable fixed backgrounds on larger/desktop environments */
+@media (hover: hover) and (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 a {

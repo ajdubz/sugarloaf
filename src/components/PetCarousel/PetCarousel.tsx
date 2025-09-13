@@ -34,7 +34,7 @@ export default function PetCarousel({ pets = defaultPets }: PetCarouselProps) {
     if (count === 0) return; // nothing to rotate
     const id = setInterval(() => {
       setStart((prev) => (prev + 3) % count);
-    }, 600); // 1 minute
+    }, 6000); // 6 seconds
     return () => clearInterval(id);
   }, [count]);
 

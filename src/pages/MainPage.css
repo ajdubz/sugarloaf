@@ -7,3 +7,14 @@
   color: inherit; /* use body color for readability on background */
   text-align: center;
 }
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.75);
+  color: #1a1a1a;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  /* Safari requires prefixed backdrop-filter */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}

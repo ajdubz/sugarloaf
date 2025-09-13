@@ -1,5 +1,9 @@
 .header {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.75);
+  /* Safari requires prefixed backdrop-filter */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .site-info {
@@ -37,7 +41,7 @@
 
 .header-nav a {
   text-decoration: none;
-  color: #333;
+  color: #1a1a1a;
   font-weight: 500;
 }
 
@@ -45,4 +49,3 @@
   font-weight: 700;
   color: #c00;
 }
-
