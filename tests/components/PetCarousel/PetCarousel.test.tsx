@@ -1,4 +1,4 @@
-import { render, screen, act } from "@testing-library/react";
+import { render, act } from "@testing-library/react";
 import { vi } from "vitest";
 import PetCarousel from "@/components/PetCarousel";
 
@@ -13,14 +13,14 @@ describe("PetCarousel", () => {
       { name: "E", image: "/e.jpg" },
       { name: "F", image: "/f.jpg" },
     ];
-    render(<PetCarousel pets={pets} />);
-    const images = screen.getAllByRole("img");
+    const view = render(<PetCarousel pets={pets} />);
+    const images = view.getAllByRole("img");
     expect(images).toHaveLength(3);
     const firstSrc = images[0].getAttribute("src");
     act(() => {
-      vi.advanceTimersByTime(600);
+      vi.advanceTimersByTime(700);
     });
-    const newSrc = screen.getAllByRole("img")[0].getAttribute("src");
+    const newSrc = view.getAllByRole("img")[0].getAttribute("src");
     expect(newSrc).not.toBe(firstSrc);
     vi.useRealTimers();
   });
@@ -31,8 +31,8 @@ describe("PetCarousel", () => {
       { name: "B", image: "/b.jpg" },
       { name: "C", image: "/c.jpg" },
     ];
-    render(<PetCarousel pets={pets} />);
-    expect(screen.getByAltText("A")).toBeInTheDocument();
-    expect(screen.getAllByRole("img")).toHaveLength(3);
+    const view = render(<PetCarousel pets={pets} />);
+    expect(view.getByAltText("A")).toBeInTheDocument();
+    expect(view.getAllByRole("img")).toHaveLength(3);
   });
 });

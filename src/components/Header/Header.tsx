@@ -1,13 +1,22 @@
 import "./Header.css";
+import placeholderData, { type NavItem } from "../../lib/placeholderData";
 
-export default function Header() {
+export interface HeaderProps {
+  navItems?: NavItem[];
+}
+
+export default function Header({
+  navItems = placeholderData.header.navItems,
+}: HeaderProps) {
   return (
     <header className="header">
       <nav className="header-nav">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Adopt</a></li>
-          <li><a href="#">Donate</a></li>
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

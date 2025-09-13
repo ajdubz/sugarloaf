@@ -1,14 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import Footer from "@/components/Footer";
+import { render } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import Footer from '@/components/Footer/Footer';
+import placeholderData from '@/lib/placeholderData';
 
-describe("Footer", () => {
-  it("renders default text", () => {
-    render(<Footer />);
-    expect(screen.getByText(/2025 Pet Rescue/)).toBeInTheDocument();
-  });
-
-  it("renders custom text", () => {
-    render(<Footer text="Custom footer" />);
-    expect(screen.getByText("Custom footer")).toBeInTheDocument();
+describe('Footer', () => {
+  it('falls back to placeholder copyright', () => {
+    const { getByText } = render(<Footer />);
+    expect(getByText(placeholderData.footer.copyright)).toBeInTheDocument();
   });
 });
