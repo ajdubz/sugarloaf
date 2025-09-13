@@ -1,0 +1,48 @@
+.header {
+  background-color: transparent;
+}
+
+.site-info {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.header-nav li {
+  position: relative;
+}
+
+.header-nav li ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.header-nav li:hover ul {
+  display: block;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.donate-button a {
+  font-weight: 700;
+  color: #c00;
+}
+
