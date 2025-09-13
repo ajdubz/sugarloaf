@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import PetCard from "../PetCard";
+import "./PetCarousel.css";
 
-type Pet = { name: string; image: string };
+export type Pet = { name: string; image: string };
 
 // IMPORTANT: path must be from this file's folder (components/PetCarousel/*)
 // Assets live under src/assets/originals, so go up two levels.
@@ -10,11 +11,15 @@ const images = import.meta.glob("../../assets/originals/petImage_*.jpg", {
   import: "default",
 });
 
-const pets: Pet[] = Object.values(images)
+const defaultPets: Pet[] = Object.values(images)
   .sort()
   .map((image, idx) => ({ name: `Pet ${idx + 1}`, image: image as string }));
 
-export default function PetCarousel() {
+interface PetCarouselProps {
+  pets?: Pet[];
+}
+
+export default function PetCarousel({ pets = defaultPets }: PetCarouselProps) {
   const [start, setStart] = useState(0);
 
   const count = pets.length;
@@ -23,7 +28,7 @@ export default function PetCarousel() {
   const visible: Pet[] = useMemo(() => {
     if (count === 0) return [];
     return [0, 1, 2].map((offset) => pets[(start + offset) % count]);
-  }, [start, count]);
+  }, [start, count, pets]);
 
   useEffect(() => {
     if (count === 0) return; // nothing to rotate
