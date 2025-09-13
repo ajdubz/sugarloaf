@@ -1,13 +1,11 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 import PetCarousel from "../components/PetCarousel/PetCarousel";
 import TestimonialForm from "../components/TestimonialForm";
 import "./MainPage.css";
 
 export default function MainPage() {
   return (
-    <>
-      <Header />
+    <Layout title="Sugarloaf Mountain Ranch, inc.">
       <section className="hero">
         <div className="hero-content">
           <h1>Sugarloaf Mountain Ranch, inc.</h1>
@@ -23,7 +21,7 @@ export default function MainPage() {
         <h2>Share your story</h2>
         <TestimonialForm />
       </section>
-      <Footer />
-    </>
+    </Layout>
   );
 }
+
