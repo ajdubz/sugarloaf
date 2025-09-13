@@ -1,9 +1,16 @@
 import "./Footer.css";
+import placeholderData from "../../lib/placeholderData";
 
-export default function Footer() {
+export interface FooterProps {
+  copyright?: string;
+}
+
+export default function Footer({
+  copyright = placeholderData.footer.copyright,
+}: FooterProps) {
   return (
     <footer className="footer">
-      <p>&copy; 2025 Pet Rescue. All rights reserved.</p>
+      <p>{copyright}</p>
     </footer>
   );
 }
