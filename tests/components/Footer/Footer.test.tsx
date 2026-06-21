@@ -1,11 +1,12 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import Footer from '@/components/Footer/Footer';
-import placeholderData from '@/lib/placeholderData';
+import { site } from '@/lib/siteContent';
 
 describe('Footer', () => {
-  it('falls back to placeholder copyright', () => {
+  it('renders Sugarloaf contact details', () => {
     const { getByText } = render(<Footer />);
-    expect(getByText(placeholderData.footer.copyright)).toBeInTheDocument();
+    expect(getByText(site.tagline)).toBeInTheDocument();
+    expect(getByText(site.email)).toBeInTheDocument();
   });
 });

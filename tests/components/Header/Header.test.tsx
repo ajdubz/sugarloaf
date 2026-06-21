@@ -1,13 +1,22 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, it, expect } from 'vitest';
-import Header from '@/components/Header/Header';
-import placeholderData from '@/lib/placeholderData';
+import Header from '@/components/Header';
+import { site } from '@/lib/siteContent';
 
 describe('Header', () => {
-  it('falls back to placeholder navigation', () => {
-    render(<Header />);
-    placeholderData.header.navItems.forEach((item) => {
-      expect(screen.getByRole('link', { name: item.label })).toHaveAttribute('href', item.href);
+  it('renders Sugarloaf navigation', () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    site.navItems.forEach((item) => {
+      expect(screen.getByRole('link', { name: item.label })).toHaveAttribute(
+        'href',
+        item.path,
+      );
     });
   });
 });

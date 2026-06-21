@@ -1,19 +1,18 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
 interface LayoutProps {
-  title: string;
   children: ReactNode;
 }
 
-export default function Layout({ title, children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <>
-      <Header title={title} />
-      <main>{children}</main>
+    <div className="app-shell">
+      <Header />
+      <main className="site-main">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }
 

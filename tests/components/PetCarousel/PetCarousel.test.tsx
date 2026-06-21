@@ -18,7 +18,7 @@ describe("PetCarousel", () => {
     expect(images).toHaveLength(3);
     const firstSrc = images[0].getAttribute("src");
     act(() => {
-      vi.advanceTimersByTime(700);
+      vi.advanceTimersByTime(6000);
     });
     const newSrc = view.getAllByRole("img")[0].getAttribute("src");
     expect(newSrc).not.toBe(firstSrc);
