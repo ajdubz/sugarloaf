@@ -10,7 +10,14 @@ export default function Header() {
     <header className="site-header">
       <div className="site-header__inner">
         <NavLink to="/" className="site-brand" onClick={() => setIsOpen(false)}>
-          <img src={site.gallery[0].src} alt="" className="site-brand__mark" />
+          <img
+            src={site.gallery[0].src}
+            alt=""
+            className="site-brand__mark"
+            width="84"
+            height="44"
+            decoding="async"
+          />
           <span>
             <strong>{site.name}</strong>
             <small>{site.tagline}</small>

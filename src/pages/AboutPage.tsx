@@ -13,7 +13,7 @@ export default function AboutPage() {
       </header>
       <section className="split-band">
         <div className="split-content">
-          <img src={site.gallery[2].src} alt={site.gallery[2].alt} />
+          <img src={site.gallery[2].src} alt={site.gallery[2].alt} loading="lazy" decoding="async" />
           <div>
             <p className="section-kicker">Expansion Goals</p>
             <h2 className="section-title">More pasture, better care, safer shelter.</h2>

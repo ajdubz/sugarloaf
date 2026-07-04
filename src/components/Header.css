@@ -97,6 +97,12 @@
   background: #efe0cf;
 }
 
+.site-nav__link:hover,
+.site-nav__donate:hover,
+.site-brand:hover {
+  text-decoration: none;
+}
+
 .site-nav__donate {
   background: #9d2f1f;
   color: #fff8ef;

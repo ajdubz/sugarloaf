@@ -33,6 +33,19 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #2f6f5f;
+  outline-offset: 3px;
+}
+
 img {
   max-width: 100%;
 }

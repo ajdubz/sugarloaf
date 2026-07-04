@@ -18,11 +18,24 @@ export default function DonorsPage() {
         <article className="donation-panel">
           <h2>Donate Online</h2>
           <p>Choose a one-time gift or a monthly support amount.</p>
-          <ul className="donation-list">
-            {site.donationOptions.map((option) => (
-              <li key={option.label}>{option.label}</li>
-            ))}
-          </ul>
+          <div className="donation-option-list" aria-label="Donation options">
+            {site.donationOptions.map((option) => {
+              const primaryLabel = option.amount > 0 ? `$${option.amount}` : option.label;
+              const detailLabel = option.amount > 0 ? "Monthly" : "Any amount";
+
+              return (
+                <a
+                  className="donation-option"
+                  href={site.donationUrl}
+                  key={option.label}
+                  aria-label={`Donate: ${option.label}`}
+                >
+                  <span>{primaryLabel}</span>
+                  <small>{` ${detailLabel}`}</small>
+                </a>
+              );
+            })}
+          </div>
           <div className="button-row">
             <a className="button" href={site.donationUrl}>
               Donate with PayPal

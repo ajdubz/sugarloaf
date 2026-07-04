@@ -9,8 +9,13 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <Header />
-      <main className="site-main">{children}</main>
+      <main id="main-content" className="site-main">
+        {children}
+      </main>
       <Footer />
     </div>
   );

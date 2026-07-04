@@ -45,7 +45,12 @@ export default function HomePage() {
 
       <section className="split-band">
         <div className="split-content">
-          <img src={featuredImages[1]?.src} alt={featuredImages[1]?.alt} />
+          <img
+            src={featuredImages[1]?.src}
+            alt={featuredImages[1]?.alt}
+            loading="lazy"
+            decoding="async"
+          />
           <div>
             <p className="section-kicker">How You Can Help</p>
             <h2 className="section-title">Kindness keeps the gates open.</h2>
@@ -64,11 +69,11 @@ export default function HomePage() {
 
       <section className="page-section">
         <p className="section-kicker">Around the Ranch</p>
-        <h2 className="section-title">A working sanctuary, not a stock-photo shelter.</h2>
+        <h2 className="section-title">A working sanctuary with real ranch life.</h2>
         <div className="gallery-grid page-section--tight">
           {featuredImages.map((image) => (
             <figure className="gallery-card" key={image.alt}>
-              <img src={image.src} alt={image.alt} />
+              <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
             </figure>
           ))}
         </div>

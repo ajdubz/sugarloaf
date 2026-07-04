@@ -8,6 +8,24 @@
   flex-direction: column;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px;
+  background: #2f6f5f;
+  color: #fff8ef;
+  font-weight: 800;
+  transform: translateY(-150%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .site-main {
   flex: 1;
 }

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { type FormEvent, useMemo, useState } from "react";
 import { site } from "@/lib/siteContent";
 import "./SitePages.css";
 
@@ -11,16 +11,21 @@ export default function ContactPage() {
 
   const mailtoHref = useMemo(() => {
     const subject = message.subject || "Sugarloaf Mountain Ranch inquiry";
-    const body = [
-      message.body,
-      "",
-      message.name ? `From: ${message.name}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    const bodyParts = [message.body];
+
+    if (message.name) {
+      bodyParts.push("", `From: ${message.name}`);
+    }
+
+    const body = bodyParts.join("\n");
 
     return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, [message]);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    window.location.href = mailtoHref;
+  }
 
   return (
     <>
@@ -52,10 +57,7 @@ export default function ContactPage() {
           <h2>Message AnnMarie Roberts</h2>
           <form
             className="contact-form"
-            onSubmit={(event) => {
-              event.preventDefault();
-              window.location.href = mailtoHref;
-            }}
+            onSubmit={handleSubmit}
           >
             <label>
               Name
@@ -89,6 +91,7 @@ export default function ContactPage() {
               Message
               <textarea
                 name="message"
+                required
                 value={message.body}
                 onChange={(event) =>
                   setMessage((current) => ({
@@ -98,9 +101,13 @@ export default function ContactPage() {
                 }
               />
             </label>
-            <a className="button" href={mailtoHref}>
+            <button className="button" type="submit">
               Send by Email
-            </a>
+            </button>
+            <p className="contact-form__fallback">
+              Prefer your email app directly?{" "}
+              <a href={mailtoHref}>Open a prefilled email</a>
+            </p>
           </form>
         </article>
       </section>

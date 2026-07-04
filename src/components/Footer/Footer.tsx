@@ -20,7 +20,7 @@ export default function Footer() {
         <a href={site.donationUrl}>Donate</a>
       </div>
       <p className="site-footer__copyright">
-        {site.name} © All rights reserved
+        {site.name} All rights reserved.
       </p>
     </footer>
   );

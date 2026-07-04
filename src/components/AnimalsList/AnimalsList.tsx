@@ -13,13 +13,13 @@ export default function AnimalsList() {
   }, []);
 
   if (error) return <p>Error: {error}</p>;
-  if (!animals.length) return <p>Loading animals…</p>;
+  if (!animals.length) return <p>Loading animals...</p>;
 
   return (
     <ul>
       {animals.map((a) => (
         <li key={`${a.species}-${a.name}`}>
-          <strong>{a.name}</strong> — {a.species}
+          <strong>{a.name}</strong> - {a.species}
           {a.description ? `: ${a.description}` : null}
         </li>
       ))}

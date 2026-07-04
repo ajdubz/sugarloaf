@@ -13,8 +13,6 @@ const folderPath = path.resolve(__dirname, "../src/assets/originals");
 const args = new Set(process.argv.slice(2));
 const isDryRun = args.has("--dry-run") || args.has("-n");
 
-// Config
-const baseName = "petImage_";
 // Accept files regardless of extension (we'll skip dotfiles like .DS_Store)
 const skipDotfile = /^\./;
 // Match petImage_## WITH an extension
@@ -24,16 +22,11 @@ const petPatternBare = /^petImage_(\d+)$/i;
 const skipPrefix = /^logo_sugarloaf/i;
 
 function uniqueJpgTarget(baseName: string, existing: Set<string>) {
-  let candidate = `${baseName}.jpg`;
+  const candidate = `${baseName}.jpg`;
   if (!existing.has(candidate)) return candidate;
   let i = 1;
   while (existing.has(`${baseName}_${i}.jpg`)) i++;
   return `${baseName}_${i}.jpg`;
-}
-
-function pad(num: number, width: number) {
-  const s = String(num);
-  return s.length >= width ? s : "0".repeat(width - s.length) + s;
 }
 
 function renameImages() {
